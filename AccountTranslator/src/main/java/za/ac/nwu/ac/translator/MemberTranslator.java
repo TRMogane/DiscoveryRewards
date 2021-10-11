@@ -7,4 +7,6 @@ import java.util.List;
 public interface MemberTranslator {
     List<MemberDto> getAllMembers();
     MemberDto getMemberByEmail(String email);
+    MemberDto create(MemberDto memberDto);
+    MemberDto update(Integer miles);
 }
