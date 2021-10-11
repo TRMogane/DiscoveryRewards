@@ -56,8 +56,12 @@ public class MemberTranslatorImpl implements MemberTranslator {
     }
 
     @Override
-    public MemberDto update(Integer miles) {
-
-        return null;
+    public MemberDto update(MemberDto memberDto) {
+        try{
+            Member member = memberRepository.save(memberDto.getMember());
+            return new MemberDto(member);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to create a Member", e);
+        }
     }
 }

@@ -3,23 +3,24 @@ package za.ac.nwu.ac.domain.dto;
 import za.ac.nwu.ac.domain.persistence.Member;
 import za.ac.nwu.ac.domain.persistence.Transactions;
 
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class TransactionDto {
 
     private Long transactionId;
-    private Member member;
+    private Long memberId;
     private Integer amount;
     private LocalDate transactionDate;
 
     public TransactionDto(Transactions transactions){
         this.setAmount(transactions.getAmount());
         this.setTransactionDate(transactions.getTransactionDate());
-        this.setMember(transactions.getMember());
+        this.setMemberId(transactions.getMemberId());
     }
 
-    public TransactionDto(Member member, Integer amount, LocalDate transactionDate) {
-        this.member = member;
+    public TransactionDto(Long memberId, Integer amount, LocalDate transactionDate) {
+        this.memberId = memberId;
         this.amount = amount;
         this.transactionDate = transactionDate;
     }
@@ -32,12 +33,12 @@ public class TransactionDto {
         this.transactionId = transactionId;
     }
 
-    public Member getMember() {
-        return member;
+    public Long getMemberId() {
+        return memberId;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
     }
 
     public Integer getAmount() {
@@ -59,8 +60,8 @@ public class TransactionDto {
     @Override
     public String toString() {
         return "TransactionDto{" +
-                "transactionId=" + transactionId +
-                ", member=" + member +
+                "  transactionId=" + transactionId +
+                ", member=" + memberId +
                 ", amount=" + amount +
                 ", transactionDate=" + transactionDate +
                 '}';

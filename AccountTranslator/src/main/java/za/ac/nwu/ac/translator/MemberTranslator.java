@@ -8,5 +8,5 @@ public interface MemberTranslator {
     List<MemberDto> getAllMembers();
     MemberDto getMemberByEmail(String email);
     MemberDto create(MemberDto memberDto);
-    MemberDto update(Integer miles);
+    MemberDto update(MemberDto memberDto);
 }
